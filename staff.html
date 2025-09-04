@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Friheden Roleplay - Staff Team</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Server logo" />
+        <span>Friheden Roleplay</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Forside</a>
+        <a href="rules.html">Regler</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="apply-police.html">Politi Ansøgning</a>
+        <a href="allowlist.html">Allowlist</a>
+        <a href="staff.html">Staff</a>
+        <a href="report.html">Anmeld Spiller</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1 class="section-title">Vores Staff Team</h1>
+      <p style="text-align: center; color: #64748b; margin-bottom: 40px; font-size: 18px;">
+        Mød det dedikerede team der holder serveren kørende og sikrer en god oplevelse for alle spillere.
+      </p>
+      
+      <div class="staff-grid">
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">👑</div>
+          </div>
+          <div class="staff-info">
+            <h3>Server Ejer</h3>
+            <p class="staff-name">Benny Nielsen</p>
+            <p class="staff-role">Ejer & Administrator</p>
+            <p class="staff-description">Ansvarlig for serverens overordnede drift og udvikling.</p>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">⚡</div>
+          </div>
+          <div class="staff-info">
+            <h3>Head Admin</h3>
+            <p class="staff-name">[Navn]</p>
+            <p class="staff-role">Hovedadministrator</p>
+            <p class="staff-description">Hjælper med serveradministration og staff management.</p>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">🛡️</div>
+          </div>
+          <div class="staff-info">
+            <h3>Moderator</h3>
+            <p class="staff-name">[Navn]</p>
+            <p class="staff-role">Moderator</p>
+            <p class="staff-description">Sikrer at reglerne bliver overholdt og hjælper spillere.</p>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">👮</div>
+          </div>
+          <div class="staff-info">
+            <h3>Politi Chef</h3>
+            <p class="staff-name">[Navn]</p>
+            <p class="staff-role">Politi Leder</p>
+            <p class="staff-description">Leder politi-afdelingen og sikrer god RP i politi-rollen.</p>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">🚑</div>
+          </div>
+          <div class="staff-info">
+            <h3>EMS Chef</h3>
+            <p class="staff-name">[Navn]</p>
+            <p class="staff-role">EMS Leder</p>
+            <p class="staff-description">Leder EMS-afdelingen og koordinerer redningsoperationer.</p>
+          </div>
+        </div>
+
+        <div class="staff-card">
+          <div class="staff-avatar">
+            <div class="avatar-placeholder">🔧</div>
+          </div>
+          <div class="staff-info">
+            <h3>Server Udvikler</h3>
+            <p class="staff-name">Benny Nielsen</p>
+            <p class="staff-role">Udvikler</p>
+            <p class="staff-description">Udvikler og vedligeholder serverens scripts og funktioner.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-cta">
+        <h2>Vil du være en del af teamet?</h2>
+        <p>Vi leder altid efter dedikerede spillere der vil hjælpe med at forbedre serveren.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-join-discord>Ansøg via Discord</button>
+          <button class="btn btn-secondary" data-join-fivem>Kontakt os i spillet</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Har du spørgsmål til staff? Join vores Discord eller kontakt os i spillet.
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle functionality
+    function initDarkMode() {
+      const toggleButton = document.createElement('button');
+      toggleButton.innerHTML = '🌙';
+      toggleButton.className = 'dark-mode-toggle';
+      toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+      
+      toggleButton.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      
+      toggleButton.addEventListener('mouseenter', () => {
+        toggleButton.style.transform = 'scale(1.1)';
+      });
+      
+      toggleButton.addEventListener('mouseleave', () => {
+        toggleButton.style.transform = 'scale(1)';
+      });
+      
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        toggleButton.innerHTML = isDark ? '☀️' : '🌙';
+        localStorage.setItem('darkMode', isDark);
+      });
+      
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode === 'true') {
+        document.body.classList.add('dark-mode');
+        toggleButton.innerHTML = '☀️';
+      }
+      
+      document.body.appendChild(toggleButton);
+    }
+    
+    // Initialize dark mode when page loads
+    document.addEventListener('DOMContentLoaded', initDarkMode);
+  </script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Friheden Roleplay - Anmeld Spiller</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Server logo" />
+        <span>Friheden Roleplay</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Forside</a>
+        <a href="rules.html">Regler</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="apply-police.html">Politi Ansøgning</a>
+        <a href="allowlist.html">Allowlist</a>
+        <a href="staff.html">Staff</a>
+        <a href="report.html">Anmeld Spiller</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h1 class="section-title">Anmeld Spiller</h1>
+      <p style="text-align: center; color: #64748b; margin-bottom: 40px; font-size: 18px;">
+        Har du oplevet en spiller der bryder reglerne? Anmeld dem her med video bevis for at hjælpe staff med at håndtere situationen.
+      </p>
+
+      <!-- Software Recommendations -->
+      <div class="software-recommendations">
+        <h2>📹 Anbefalede Optagelses Software</h2>
+        <p>For at give staff det bedste bevis, anbefaler vi at du bruger en af disse software til at optage gameplay:</p>
+        
+        <div class="software-grid">
+          <div class="software-card">
+            <div class="software-icon">🏆</div>
+            <h3>Medal.tv</h3>
+            <p class="software-description">Automatisk optagelse af highlights og nem deling. Perfekt til at fange regelbrud i øjeblikket.</p>
+            <div class="software-features">
+              <span class="feature">✓ Automatisk optagelse</span>
+              <span class="feature">✓ Nem deling</span>
+              <span class="feature">✓ Gratis</span>
+            </div>
+            <a href="https://medal.tv" target="_blank" class="btn btn-primary">Download Medal.tv</a>
+          </div>
+
+          <div class="software-card">
+            <div class="software-icon">🎮</div>
+            <h3>OBS Studio</h3>
+            <p class="software-description">Professionel optagelse med fuld kontrol. God til længere optagelser og streaming.</p>
+            <div class="software-features">
+              <span class="feature">✓ Professionel kvalitet</span>
+              <span class="feature">✓ Fuldt tilpasseligt</span>
+              <span class="feature">✓ Gratis</span>
+            </div>
+            <a href="https://obsproject.com" target="_blank" class="btn btn-secondary">Download OBS</a>
+          </div>
+
+          <div class="software-card">
+            <div class="software-icon">⚡</div>
+            <h3>NVIDIA ShadowPlay</h3>
+            <p class="software-description">Optimalt til NVIDIA grafikkort. Minimal performance påvirkning og automatisk optagelse.</p>
+            <div class="software-features">
+              <span class="feature">✓ Minimal lag</span>
+              <span class="feature">✓ Automatisk optagelse</span>
+              <span class="feature">✓ NVIDIA GPU</span>
+            </div>
+            <a href="https://www.nvidia.com/en-us/geforce/geforce-experience/" target="_blank" class="btn btn-secondary">Download ShadowPlay</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Report Form -->
+      <div class="report-form-section">
+        <h2>📝 Anmeldelses Formular</h2>
+        <p class="form-description">
+          <strong>Vigtigt:</strong> Alle anmeldelser skal indeholde video bevis. Uden video bevis kan vi ikke håndtere anmeldelsen.
+        </p>
+        
+        <div id="report-status" class="success"></div>
+        <div id="report-errors" class="error" style="margin:8px 0 12px;"></div>
+        
+        <form id="report-form" class="card">
+          <div class="field">
+            <label for="reporterName">Dit RP-navn</label>
+            <input type="text" id="reporterName" name="reporterName" placeholder="F.eks. Jens Hansen" required />
+          </div>
+
+          <div class="field">
+            <label for="reporterDiscord">Din Discord</label>
+            <input type="text" id="reporterDiscord" name="reporterDiscord" placeholder="Brugernavn" required />
+          </div>
+
+          <div class="field">
+            <label for="reportedPlayer">Anmeldt spiller (RP-navn)</label>
+            <input type="text" id="reportedPlayer" name="reportedPlayer" placeholder="F.eks. Peter Andersen" required />
+          </div>
+
+          <div class="field">
+            <label for="violationType">Type af regelbrud</label>
+            <select id="violationType" name="violationType" required>
+              <option value="">Vælg regelbrud...</option>
+              <option value="rdm">RDM (Random Death Match)</option>
+              <option value="vdm">VDM (Vehicle Death Match)</option>
+              <option value="failrp">FailRP</option>
+              <option value="metagaming">Metagaming</option>
+              <option value="powergaming">Powergaming</option>
+              <option value="combat-logging">Combat Logging</option>
+              <option value="exploiting">Exploiting/Bug Abuse</option>
+              <option value="cheating">Cheating/Hacking</option>
+              <option value="harassment">Chikane</option>
+              <option value="other">Andet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="incidentTime">Tidspunkt for hændelsen</label>
+            <input type="datetime-local" id="incidentTime" name="incidentTime" required />
+          </div>
+
+          <div class="field">
+            <label for="videoLink">Video Link (PÅKRÆVET)</label>
+            <input type="url" id="videoLink" name="videoLink" placeholder="https://medal.tv/..." required />
+            <span class="help">Indsæt link til din video (Medal.tv, YouTube, Google Drive, etc.)</span>
+          </div>
+
+          <div class="field">
+            <label for="incidentDescription">Beskrivelse af hændelsen</label>
+            <textarea id="incidentDescription" name="incidentDescription" placeholder="Beskriv hvad der skete i detaljer..." required></textarea>
+            <span class="help">Skriv mindst 50 tegn om hvad der skete.</span>
+          </div>
+
+          <div class="field">
+            <label for="witnesses">Vidner (valgfri)</label>
+            <textarea id="witnesses" name="witnesses" placeholder="Navne på andre spillere der så hændelsen"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="additionalInfo">Yderligere information</label>
+            <textarea id="additionalInfo" name="additionalInfo" placeholder="Andre relevante oplysninger"></textarea>
+          </div>
+
+          <div class="field">
+            <label style="display:flex; gap:8px; align-items:center; font-weight:400;">
+              <input type="checkbox" id="truthful" name="truthful" required /> 
+              Jeg bekræfter at denne anmeldelse er sandfærdig og at jeg har video bevis
+            </label>
+          </div>
+
+          <div class="field">
+            <label style="display:flex; gap:8px; align-items:center; font-weight:400;">
+              <input type="checkbox" id="rules" name="rules" required /> 
+              Jeg har læst og forstået <a href="rules.html" target="_blank">reglerne</a>
+            </label>
+          </div>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button type="submit" class="btn btn-primary">Indsend anmeldelse</button>
+            <button type="button" class="btn btn-secondary" data-join-discord>Spørgsmål? Join Discord</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Guidelines -->
+      <div class="report-guidelines">
+        <h2>📋 Anmeldelses Retningslinjer</h2>
+        <div class="guidelines-grid">
+          <div class="guideline-card">
+            <h3>✅ Gør</h3>
+            <ul>
+              <li>Optag video bevis af hændelsen</li>
+              <li>Beskriv hændelsen objektivt og detaljeret</li>
+              <li>Inkluder tidspunkt og lokation</li>
+              <li>Vær respektfuld i din beskrivelse</li>
+              <li>Vent på staff svar før du konfronterer spilleren</li>
+            </ul>
+          </div>
+          
+          <div class="guideline-card">
+            <h3>❌ Gør ikke</h3>
+            <ul>
+              <li>Anmeld uden video bevis</li>
+              <li>Lav falske anmeldelser</li>
+              <li>Anmeld for små ting der ikke bryder reglerne</li>
+              <li>Konfronter spilleren direkte i spillet</li>
+              <li>Del anmeldelsen offentligt</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Anmeldelser behandles af vores staff team. Vi vender tilbage inden for 24 timer.
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle functionality
+    function initDarkMode() {
+      const toggleButton = document.createElement('button');
+      toggleButton.innerHTML = '🌙';
+      toggleButton.className = 'dark-mode-toggle';
+      toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+      
+      toggleButton.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      
+      toggleButton.addEventListener('mouseenter', () => {
+        toggleButton.style.transform = 'scale(1.1)';
+      });
+      
+      toggleButton.addEventListener('mouseleave', () => {
+        toggleButton.style.transform = 'scale(1)';
+      });
+      
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        toggleButton.innerHTML = isDark ? '☀️' : '🌙';
+        localStorage.setItem('darkMode', isDark);
+      });
+      
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode === 'true') {
+        document.body.classList.add('dark-mode');
+        toggleButton.innerHTML = '☀️';
+      }
+      
+      document.body.appendChild(toggleButton);
+    }
+
+    // Report form handling with Discord webhook
+    function handleReportForm() {
+      const form = document.getElementById("report-form");
+      if (!form) return;
+
+      const status = document.getElementById("report-status");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        status.textContent = "";
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        const errors = [];
+        if (!data.reporterName || data.reporterName.trim().length < 3) errors.push("Dit RP-navn skal være mindst 3 tegn.");
+        if (!data.reportedPlayer || data.reportedPlayer.trim().length < 3) errors.push("Anmeldt spiller navn skal være mindst 3 tegn.");
+        if (!data.violationType) errors.push("Vælg type af regelbrud.");
+        if (!data.videoLink || !isValidUrl(data.videoLink)) errors.push("Indtast gyldigt video link.");
+        if (!data.incidentDescription || data.incidentDescription.trim().length < 50) errors.push("Beskrivelse skal være mindst 50 tegn.");
+        if (!data.truthful) errors.push("Du skal bekræfte at anmeldelsen er sandfærdig.");
+        if (!data.rules) errors.push("Du skal bekræfte at du har læst reglerne.");
+
+        const errorBox = document.getElementById("report-errors");
+        errorBox.innerHTML = "";
+        if (errors.length) {
+          errors.forEach(msg => {
+            const div = document.createElement("div");
+            div.textContent = msg;
+            errorBox.appendChild(div);
+          });
+          return;
+        }
+
+        // Send to Discord webhook
+        const webhookUrl = "https://discord.com/api/webhooks/1413233334703882361/xDlIJQcfOgcReknoTuCgrXeUlWYALo1ffs9pRuMt0swLSH-Y4sISXxBi2BXBhNeYcueZ";
+        const payload = {
+          content: null,
+          embeds: [
+            {
+              title: "🚨 Ny Spiller Anmeldelse",
+              color: 15158332, // Red color for reports
+              fields: [
+                { name: "Anmelder", value: String(data.reporterName), inline: true },
+                { name: "Anmelder Discord", value: String(data.reporterDiscord), inline: true },
+                { name: "Anmeldt Spiller", value: String(data.reportedPlayer), inline: true },
+                { name: "Type Regelbrud", value: String(data.violationType), inline: true },
+                { name: "Tidspunkt", value: String(data.incidentTime), inline: true },
+                { name: "Video Link", value: `[Se Video](${data.videoLink})`, inline: true },
+                { name: "Beskrivelse", value: String(data.incidentDescription), inline: false },
+                { name: "Vidner", value: String(data.witnesses || "Ingen"), inline: false },
+                { name: "Yderligere Info", value: String(data.additionalInfo || "Ingen"), inline: false }
+              ],
+              timestamp: new Date().toISOString(),
+              footer: {
+                text: "Friheden Roleplay - Anmeldelses System"
+              }
+            }
+          ]
+        };
+
+        fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+        .then((res) => {
+          if (!res.ok) throw new Error("Webhook fejl");
+          status.textContent = "Tak for din anmeldelse! Staff vil gennemgå den inden for 24 timer.";
+          form.reset();
+        })
+        .catch(() => {
+          status.textContent = "Kunne ikke sende til Discord. Prøv igen senere.";
+        });
+      });
+    }
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      initDarkMode();
+      handleReportForm();
+    });
+  </script>
+</body>
+</html>
