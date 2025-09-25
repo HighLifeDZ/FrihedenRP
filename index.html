@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FrihedenRP - Velkommen</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="icon" href="assets/logo.png" />
+  <meta name="description" content="Dansk FiveM Roleplay server. Join serveren, læs reglerne, se jobs og ansøg som politi." />
+  <meta name="color-scheme" content="light" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="assets/app.js"></script>
+  <style>
+    .hero-art { 
+      width: 100%; 
+      height: 320px; 
+      border-radius: 20px; 
+      background: linear-gradient(135deg,#111827,#1f2937); 
+      position: relative; 
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      z-index: 1;
+    }
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(transparent, rgba(0,0,0,.4)), url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.9;
+      z-index: 2;
+    }
+    .hero-art:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+  </style>
+  <!-- Replace assets/logo.png and assets/hero.jpg with your own if desired -->
+  <script>
+    // Fallback for missing images
+    window.addEventListener('error', function(e){
+      if (e && e.target && e.target.tagName === 'IMG') e.target.style.display = 'none';
+    }, true);
+  </script>
+  </head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="Server logo" />
+        <span>Friheden Roleplay</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Forside</a>
+        <a href="rules.html">Regler</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="apply-police.html">Politi Ansøgning</a>
+        <a href="allowlist.html">Allowlist</a>
+        <a href="staff.html">Staff</a>
+        <a href="report.html">Anmeld Spiller</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Velkommen til Friheden Roleplay</h1>
+        <p>En dansk FiveM Roleplay server med fokus på seriøsitet, fællesskab og sjove scenarier. Deltag i samfundet, udforsk jobs og form fremtiden i byen.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-join-fivem>Join FiveM Server</button>
+          <button class="btn btn-secondary" data-join-discord>Join Discord</button>
+        </div>
+      </div>
+      <div class="hero-art card"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Hurtige links</h2>
+      <div class="grid">
+        <a class="card" href="rules.html">
+          <h3>Regler</h3>
+          <p>Læs vores regler for at sikre en god oplevelse for alle.</p>
+        </a>
+        <a class="card" href="jobs.html">
+          <h3>Jobs</h3>
+          <p>Se de ledige jobs og find din rolle i byen.</p>
+        </a>
+        <a class="card" href="apply-police.html">
+          <h3>Politi Ansøgning</h3>
+          <p>Vil du holde lov og orden? Ansøg her.</p>
+        </a>
+        <a class="card" href="allowlist.html">
+          <h3>Allowlist</h3>
+          <p>Serveren er allowlisted. Ansøg om adgang her.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Friheden RP. Alle rettigheder forbeholdes.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Dark mode toggle functionality
+    function initDarkMode() {
+      const toggleButton = document.createElement('button');
+      toggleButton.innerHTML = '🌙';
+      toggleButton.className = 'dark-mode-toggle';
+      toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+      
+      toggleButton.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+      
+      toggleButton.addEventListener('mouseenter', () => {
+        toggleButton.style.transform = 'scale(1.1)';
+      });
+      
+      toggleButton.addEventListener('mouseleave', () => {
+        toggleButton.style.transform = 'scale(1)';
+      });
+      
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        toggleButton.innerHTML = isDark ? '☀️' : '🌙';
+        localStorage.setItem('darkMode', isDark);
+      });
+      
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode === 'true') {
+        document.body.classList.add('dark-mode');
+        toggleButton.innerHTML = '☀️';
+      }
+      
+      document.body.appendChild(toggleButton);
+    }
+    
+    // Initialize dark mode when page loads
+    document.addEventListener('DOMContentLoaded', initDarkMode);
+  </script>
+</body>
+</html>
+
+
